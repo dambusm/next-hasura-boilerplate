@@ -1,0 +1,12 @@
+schema: 'src/graphql/schema.graphql'
+documents: 'src/graphql/**/*.graphql'
+generates:
+  src/graphql/sdk.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+      - typescript-compatibility
+config:
+  skipTypename: true
+  preResolveTypes: true
