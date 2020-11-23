@@ -10,3 +10,7 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
 - Add your graphql queries in `src/graphql/queries`
 - Run `yarn setup` to initialise Vercel, choose defaults
 - Run `yarn start` to start the dev server, introspect the hasura graphql api and generate the sdk
+
+## TO DO
+
+- yarn workspaces
