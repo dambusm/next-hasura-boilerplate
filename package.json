@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "start": "concurrently \"vercel dev\" \"yarn graphql-codegen --watch\"",
-    "setup": "vercel dev",
+    "setup": "cp check-commits.sh .git/hooks/pre-push && cp check-commits.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-push && chmod +x .git/hooks/pre-commit && vercel dev",
     "deploy:dev": "vercel",
     "deploy:prod": "vercel --prod",
     "introspect": "source '.env' && gq ${HASURA_GRAPHQL_URL} -H \"x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}\" --introspect > src/graphql/schema.graphql",
