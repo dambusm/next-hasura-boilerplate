@@ -1,5 +1,5 @@
-import {signin, signout, useSession } from 'next-auth/client';
-import Head from 'next/head'
+import { signin, signout, useSession } from 'next-auth/client';
+import Head from 'next/head';
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -18,16 +18,16 @@ export default function Home() {
 
         <p className="description">
           {!session && (
-              <>
-                Not signed in <br />
-                <button onClick={() => signin()}>Sign in</button>
-              </>
+            <>
+              Not signed in <br />
+              <button onClick={() => signin()}>Sign in</button>
+            </>
           )}
           {session && (
-              <>
-                Signed in as {session.user.email} <br />
-                <button onClick={() => signout()}>Sign out</button>
-              </>
+            <>
+              Signed in as {session.user.email} <br />
+              <button onClick={() => signout()}>Sign out</button>
+            </>
           )}
         </p>
 
@@ -219,5 +219,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }

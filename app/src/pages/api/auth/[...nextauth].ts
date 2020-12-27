@@ -1,6 +1,6 @@
+import { NowRequest, NowResponse } from '@now/node';
 import NextAuth, { InitOptions } from 'next-auth';
 import Providers from 'next-auth/providers';
-import { NowRequest, NowResponse } from '@now/node';
 import { createUser } from '../../../data/auth-manager';
 import { isUniquenessConstraintError } from '../../../graphql/hasura-types';
 
