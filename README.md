@@ -6,6 +6,7 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
 
 - Run `yarn` from root
 - Run `yarn setup` from root
+- `cd app`
 - Create .env from template
 - Set up your schemas in Hasura cloud
    - For auth to work, add a data type `user` with `email` and `id`
