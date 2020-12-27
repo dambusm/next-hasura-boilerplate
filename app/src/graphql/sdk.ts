@@ -3,6 +3,8 @@ import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -791,11 +793,11 @@ export type SdkFunctionWrapper = <T>(action: () => Promise<T>) => Promise<T>;
 const defaultWrapper: SdkFunctionWrapper = sdkFunction => sdkFunction();
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    getUserByEmail(variables: GetUserByEmailQueryVariables): Promise<GetUserByEmailQuery> {
-      return withWrapper(() => client.request<GetUserByEmailQuery>(print(GetUserByEmailDocument), variables));
+    getUserByEmail(variables: GetUserByEmailQueryVariables, requestHeaders?: Headers): Promise<GetUserByEmailQuery> {
+      return withWrapper(() => client.request<GetUserByEmailQuery>(print(GetUserByEmailDocument), variables, requestHeaders));
     },
-    createUser(variables: CreateUserMutationVariables): Promise<CreateUserMutation> {
-      return withWrapper(() => client.request<CreateUserMutation>(print(CreateUserDocument), variables));
+    createUser(variables: CreateUserMutationVariables, requestHeaders?: Headers): Promise<CreateUserMutation> {
+      return withWrapper(() => client.request<CreateUserMutation>(print(CreateUserDocument), variables, requestHeaders));
     }
   };
 }
