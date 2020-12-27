@@ -9035,6 +9035,10 @@ watchpack@^1.7.4:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
 
+"water.css@https://github.com/kognise/water.css":
+  version "2.0.0"
+  resolved "https://github.com/kognise/water.css#83e916f66c21a94ffa1155229543abd8a9e969d9"
+
 webidl-conversions@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
