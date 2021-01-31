@@ -1,8 +1,15 @@
 import { signin, signout, useSession } from 'next-auth/client';
 import Head from 'next/head';
+import useSWR from 'swr';
 
 export default function Home() {
   const [session, loading] = useSession();
+  const { data, error } = useSWR('todos', () =>
+    fetch('https://jsonplaceholder.typicode.com/todos/1').then((response) =>
+      response.json()
+    )
+  );
+  console.log(data);
 
   return (
     <div className="container">

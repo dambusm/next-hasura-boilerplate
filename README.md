@@ -19,4 +19,3 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
 - Testing - Testcafe / cypress
 - Metatags / SEO - https://github.com/garmeeh/next-seo
 - State - redux / mobx state tree ?
-- Data fetching - swr?
