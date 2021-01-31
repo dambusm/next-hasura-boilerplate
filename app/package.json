@@ -8,7 +8,8 @@
     "deploy:dev": "vercel",
     "deploy:prod": "vercel --prod",
     "introspect": "source '.env' && gq ${HASURA_GRAPHQL_URL} -H \"x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}\" --introspect > src/graphql/schema.graphql",
-    "graphql-codegen": "yarn introspect && graphql-codegen --config src/graphql/codegen.yml"
+    "graphql-codegen": "yarn introspect && graphql-codegen --config src/graphql/codegen.yml",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "graphql": "15.4.0",
@@ -25,6 +26,7 @@
     "@graphql-codegen/typescript-compatibility": "2.0.1",
     "@graphql-codegen/typescript-graphql-request": "3.0.0",
     "@graphql-codegen/typescript-operations": "1.17.13",
+    "@next/bundle-analyzer": "10.0.6",
     "@now/node": "1.8.5",
     "@types/next-auth": "3.1.18",
     "@types/react": "17.0.0",
