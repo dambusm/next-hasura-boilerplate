@@ -18,4 +18,4 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
 - i18n - https://github.com/isaachinman/next-i18next
 - Testing - Testcafe / cypress
 - Metatags / SEO - https://github.com/garmeeh/next-seo
-- State - redux / mobx state tree ?
+- State - redux / mobx state tree ? context api? hookstate looks good but might not be maintained
