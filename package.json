@@ -8,7 +8,8 @@
     ]
   },
   "scripts": {
-    "setup": "cp check-commits.sh .git/hooks/pre-push && cp check-commits.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-push && chmod +x .git/hooks/pre-commit && yarn workspace @next-hasura-boilerplate/app vercel dev"
+    "setup": "cp check-commits.sh .git/hooks/pre-push && cp check-commits.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-push && chmod +x .git/hooks/pre-commit && git remote add template git@github.com:dambusm/next-hasura-boilerplate.git && yarn workspace @next-hasura-boilerplate/app vercel dev",
+    "merge-template-changes": "git fetch template && git merge template/main --allow-unrelated-histories"
   },
   "devDependencies": {
     "@types/node": "14.14.16",
