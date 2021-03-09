@@ -2,6 +2,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['import', 'security', 'unicorn'],
   extends: [
+    'react-app',
     'plugin:security/recommended',
     'plugin:no-unsanitized/DOM',
     'plugin:import/errors',
