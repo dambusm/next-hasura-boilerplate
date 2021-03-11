@@ -2,6 +2,9 @@ import { Provider as NextAuthProvider } from 'next-auth/client';
 import { AppProps } from 'next/app';
 import React from 'react';
 import 'water.css/dist/light.css';
+import Logger from '../lib/logger';
+
+export const logger = new Logger();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
