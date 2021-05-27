@@ -1,8 +1,8 @@
+import { AuthError, createUser } from '@next-hasura-boilerplate/data-lib';
+import { DataLibError } from '@next-hasura-boilerplate/data-lib/src/data-lib-error';
 import { NowRequest, NowResponse } from '@now/node';
 import NextAuth, { InitOptions } from 'next-auth';
 import Providers from 'next-auth/providers';
-import { createUser } from '../../../data/auth-manager';
-import { isUniquenessConstraintError } from '../../../graphql/hasura-types';
 
 const { GITHUB_ID, GITHUB_SECRET, JWT_SECRET } = process.env;
 if (!GITHUB_ID || !GITHUB_SECRET || !JWT_SECRET) {
@@ -28,7 +28,10 @@ const options: InitOptions = {
         await createUser(user.email);
         return Promise.resolve(true);
       } catch (error) {
-        if (isUniquenessConstraintError(error)) {
+        if (
+          error instanceof DataLibError &&
+          error.type === AuthError.UserAlreadyExists
+        ) {
           console.log('User exists');
           return Promise.resolve(true);
         }
@@ -38,5 +41,6 @@ const options: InitOptions = {
   },
 };
 
-export default (req: NowRequest, res: NowResponse) =>
+const nextAuth = (req: NowRequest, res: NowResponse) =>
   NextAuth(req, res, options);
+export default nextAuth;
