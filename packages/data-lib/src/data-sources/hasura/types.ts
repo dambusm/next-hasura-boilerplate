@@ -17,16 +17,17 @@ type HasuraError = {
   };
 };
 
-export const isHasuraError = (toCheck: any): toCheck is HasuraError => {
-  return (
+export const isHasuraError = (toCheck: unknown): toCheck is HasuraError => {
+  return !!(
+    toCheck &&
     typeof toCheck === 'object' &&
     toCheck.hasOwnProperty('response') &&
     toCheck.hasOwnProperty('request') &&
-    typeof toCheck['response'] === 'object'
+    typeof (toCheck as { response: unknown }).response === 'object'
   );
 };
 
-export const isUniquenessConstraintError = (toCheck: any) =>
+export const isUniquenessConstraintError = (toCheck: unknown) =>
   isHasuraError(toCheck) &&
   toCheck.response.errors.some(
     (error) => error.extensions.code === 'constraint-violation'
