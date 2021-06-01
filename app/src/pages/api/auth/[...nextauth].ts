@@ -1,4 +1,4 @@
-import { AuthError, createUser } from '@next-hasura-boilerplate/data-lib';
+import { AuthError, AuthManager } from '@next-hasura-boilerplate/data-lib';
 import { DataLibError } from '@next-hasura-boilerplate/data-lib/src/data-lib-error';
 import { NowRequest, NowResponse } from '@now/node';
 import NextAuth, { InitOptions } from 'next-auth';
@@ -25,7 +25,7 @@ const options: InitOptions = {
         if (!user.email) {
           throw new Error('No email provided by Oauth provider');
         }
-        await createUser(user.email);
+        await AuthManager.createUser(user.email);
         return Promise.resolve(true);
       } catch (error) {
         if (
