@@ -1,5 +1,5 @@
-import { NowRequest, NowResponse } from '@now/node';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(200).send('Hello world');
 };

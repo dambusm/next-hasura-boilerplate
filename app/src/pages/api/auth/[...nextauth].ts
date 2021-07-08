@@ -1,6 +1,6 @@
 import { AuthError, AuthManager } from '@next-hasura-boilerplate/data-lib';
 import { DataLibError } from '@next-hasura-boilerplate/data-lib/src/data-lib-error';
-import { NowRequest, NowResponse } from '@now/node';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { InitOptions } from 'next-auth';
 import Providers from 'next-auth/providers';
 
@@ -41,6 +41,6 @@ const options: InitOptions = {
   },
 };
 
-const nextAuth = (req: NowRequest, res: NowResponse) =>
+const nextAuth = (req: NextApiRequest, res: NextApiResponse) =>
   NextAuth(req, res, options);
 export default nextAuth;
