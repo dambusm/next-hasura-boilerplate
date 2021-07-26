@@ -1,11 +1,10 @@
-import { FC } from 'react';
 import useSWR from 'swr';
 import { publicDataManager } from '../_app';
 import styles from './posts.module.scss';
 
 const fetcher = () => publicDataManager.postsManager.getPosts();
 
-const Index: FC<Props> = (props) => {
+const Index = (props) => {
   const { posts } = props;
   // Together with SWR, you can pre-render the page for SEO, and also have features such as caching, revalidation,
   // focus tracking, refetching on interval in the client side.

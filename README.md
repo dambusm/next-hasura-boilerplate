@@ -12,7 +12,15 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
   - For demo CRUD to work:
     - add a data type `post` with `content` and `id`
     - Make `post` SELECT publicly available by allowing role `anonymous` access
-    - Add `HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous` to Hasura Env Vars
+    - Add to Hasura Env Vars:
+      ```
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous
+      HASURA_GRAPHQL_JWT_SECRET={
+           "key": **JWT SECRET**,
+           "type": "HS256",
+           "claims_format": "stringified_json"
+         }
+      ```
 - Add your graphql queries in `packages/data-lib/data-sources/hasura/graphql/queries`
 
 ## TODO

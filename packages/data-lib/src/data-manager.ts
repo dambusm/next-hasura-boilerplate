@@ -6,8 +6,8 @@ export class DataManager {
   hasuraSDK: HasuraSDK;
   authManager: AuthManager;
   postsManager: PostsManager;
-  constructor(adminSecret?: string) {
-    this.hasuraSDK = getHasuraSDK(adminSecret);
+  constructor(options?: { adminSecret?: string; jwt?: any }) {
+    this.hasuraSDK = getHasuraSDK(options);
     this.authManager = new AuthManager(this.hasuraSDK);
     this.postsManager = new PostsManager(this.hasuraSDK);
   }

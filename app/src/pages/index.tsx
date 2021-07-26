@@ -12,7 +12,7 @@ export default function Home() {
       response.json()
     )
   );
-  console.log(data);
+  console.log(data, session);
 
   return (
     <div className="container">
