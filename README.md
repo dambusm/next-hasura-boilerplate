@@ -9,6 +9,10 @@ Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + ne
 - Create .env files from templates
 - Set up your schemas in Hasura cloud
   - For auth to work, add a data type `user` with `email` and `id`
+  - For demo CRUD to work:
+    - add a data type `post` with `content` and `id`
+    - Make `post` SELECT publicly available by allowing role `anonymous` access
+    - Add `HASURA_GRAPHQL_UNAUTHORIZED_ROLE=anonymous` to Hasura Env Vars
 - Add your graphql queries in `packages/data-lib/data-sources/hasura/graphql/queries`
 
 ## TODO
