@@ -1,6 +1,6 @@
-# Next.js + Hasura Boilerplate
+# Next.js Boilerplate
 
-Boilerplate setup for Next.js / Now + Hasura + GraphQL Codegen + TypeScript + next-auth
+Boilerplate setup for Next.js + Directus + GraphQL Codegen + TypeScript + next-auth
 
 ## Getting started
 
